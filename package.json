@@ -26,6 +26,7 @@
     "dist"
   ],
   "dependencies": {
+    "@radix-ui/react-aspect-ratio": "^0.1.5-rc.37",
     "@samvera/nectar-iiif": "^0.0.13",
     "@stitches/react": "^1.2.8",
     "react": "^18.1.0",

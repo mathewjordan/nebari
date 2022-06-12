@@ -1,4 +1,6 @@
-export const items = [
+import { Canvas } from "@iiif/presentation-3";
+
+export const items: Canvas[] = [
   {
     id: "https://iiif.io/api/cookbook/recipe/0009-book-1/canvas/p1",
     type: "Canvas",

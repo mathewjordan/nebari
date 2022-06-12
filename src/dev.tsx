@@ -1,13 +1,20 @@
 import React, { StrictMode } from "react";
-import Nebari from "./index";
+import { Grid, ScrollableList } from "./index";
 import { createRoot } from "react-dom/client";
-import { items } from "./fixtures/manifest/manifest-long";
+import { items } from "./fixtures/collection/collection";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
   <StrictMode>
-    <Nebari items={items} />
+    <section>
+      <h2>ScrollableList</h2>
+      <ScrollableList items={items} />
+    </section>
+    <section>
+      <h2>Grid</h2>
+      <Grid items={items} />
+    </section>
   </StrictMode>
 );

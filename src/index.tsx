@@ -1,5 +1,6 @@
-import React from "react";
 import { Behavior, ViewingDirection } from "@iiif/vocabulary";
+import Grid from "@/components/Grid/Grid";
+import ScrollableList from "@/components/ScrollableList/ScrollableList";
 
 interface NebariProps {
   behavior?: Behavior;
@@ -7,8 +8,4 @@ interface NebariProps {
   viewingDirection?: ViewingDirection;
 }
 
-const Nebari: React.FC<NebariProps> = ({ items }) => {
-  return <>...</>;
-};
-
-export default Nebari;
+export { Grid, ScrollableList };

@@ -1,4 +1,6 @@
-export const items = [
+import { CollectionItems } from "@iiif/presentation-3";
+
+export const items: CollectionItems[] = [
   {
     id: "https://canopy-iiif.vercel.app/iiif/manifest/nez-perce/01-half-moon.json",
     type: "Manifest",

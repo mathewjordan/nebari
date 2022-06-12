@@ -1,6 +1,10 @@
 import React from "react";
 
-const Nebari: React.FC = ({}) => {
+interface NebariProps {
+  items: [];
+}
+
+const Nebari: React.FC = ({ items }) => {
   return <>...</>;
 };
 

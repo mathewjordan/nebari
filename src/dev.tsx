@@ -1,4 +1,4 @@
-import React, { StrictMode, useEffect, useState } from "react";
+import React, { StrictMode } from "react";
 import Nebari from "./index";
 import { createRoot } from "react-dom/client";
 

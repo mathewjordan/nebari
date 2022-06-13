@@ -8,10 +8,10 @@ const root = createRoot(container);
 
 root.render(
   <StrictMode>
-    <section>
+    {/* <section>
       <h2>ScrollableList</h2>
       <ScrollableList items={items} />
-    </section>
+    </section> */}
     <section>
       <h2>Grid</h2>
       <Grid items={items} />

@@ -1,12 +1,15 @@
 import { GridProps } from "@/types/nebari";
-import Items from "@/components/Items/Items";
+import { GridStyled } from "@/components/Grid/Grid.styled";
+import Item from "@/components/Item/Item";
 import React from "react";
 
 const Grid: React.FC<GridProps> = ({ items }) => {
   return (
-    <>
-      <Items items={items} />
-    </>
+    <GridStyled breakpointCols={3} className="nebari-grid">
+      {items.map((item) => (
+        <Item item={item} />
+      ))}
+    </GridStyled>
   );
 };
 

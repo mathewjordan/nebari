@@ -1,8 +1,8 @@
 import Item from "@/components/Item/Item";
-import { NebariProps } from "@/types/nebari";
+import { NebariComponent } from "@/types/nebari";
 import React from "react";
 
-const ScrollableList: React.FC<NebariProps> = ({ items }) => {
+const ScrollableList: React.FC<NebariComponent> = ({ items }) => {
   return (
     <>
       {items.map((item) => (

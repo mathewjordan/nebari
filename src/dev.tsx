@@ -1,7 +1,7 @@
 import React, { StrictMode } from "react";
 import { Grid, ScrollableList } from "./index";
 import { createRoot } from "react-dom/client";
-import { items } from "./fixtures/collection/collection";
+import { items } from "./fixtures/collection/collection-long";
 
 const container = document.getElementById("root");
 const root = createRoot(container);

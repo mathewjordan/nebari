@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { GridProps } from "@/types/nebari";
 import { GridStyled } from "@/components/Grid/Grid.styled";
 import Item from "@/components/Item/Item";
 import { media } from "@/stitches";
+import { NebariGrid } from "@/types/nebari";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
-const Grid: React.FC<GridProps> = ({ items }) => {
+const Grid: React.FC<NebariGrid> = ({ items }) => {
   const [cols, setCols] = useState(5);
 
   let mediaQuery = new Map();
@@ -41,7 +41,7 @@ const Grid: React.FC<GridProps> = ({ items }) => {
   return (
     <GridStyled breakpointCols={cols} className="nebari-grid">
       {items.map((item) => (
-        <Item item={item} />
+        <Item item={item} key={item.id} />
       ))}
     </GridStyled>
   );

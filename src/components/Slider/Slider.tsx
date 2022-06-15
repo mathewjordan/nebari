@@ -7,7 +7,7 @@ const Slider: React.FC<NebariComponent> = ({ items }) => {
   return (
     <SliderStyled>
       {items.map((item) => (
-        <Item item={item} />
+        <Item item={item} key={item.id} />
       ))}
     </SliderStyled>
   );

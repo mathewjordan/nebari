@@ -1,4 +1,4 @@
 import Grid from "@/components/Grid/Grid";
-import ScrollableList from "@/components/ScrollableList/ScrollableList";
+import Slider from "@/components/Slider/Slider";
 
-export { Grid, ScrollableList };
+export { Grid, Slider };

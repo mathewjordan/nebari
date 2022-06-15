@@ -1,11 +1,14 @@
 import { Behavior, ViewingDirection } from "@iiif/vocabulary";
-import { ContentResource, InternationalString } from "@iiif/presentation-3";
+import {
+  IIIFExternalWebResource,
+  InternationalString,
+} from "@iiif/presentation-3";
 
 export interface NebariItem {
   id: string;
   label: InternationalString;
   type: "Canvas" | "Collection" | "Manifest";
-  thumbnail?: ContentResource[];
+  thumbnail?: IIIFExternalWebResource[];
 }
 
 export interface NebariComponent {

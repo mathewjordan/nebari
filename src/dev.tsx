@@ -4,7 +4,7 @@ import { createRoot } from "react-dom/client";
 import { items } from "./fixtures/collection/collection-long";
 
 const container = document.getElementById("root");
-const root = createRoot(container);
+const root = createRoot(container as HTMLElement);
 
 root.render(
   <StrictMode>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { GridStyled } from "@/components/Grid/Grid.styled";
 import Item from "@/components/Item/Item";
 import { media } from "@/stitches";

@@ -1,3 +1,4 @@
+import * as AspectRatio from "@radix-ui/react-aspect-ratio";
 import { ItemStyled } from "@/components/Item/Item.styled";
 import { Label, Thumbnail } from "@samvera/nectar-iiif";
 import React from "react";
@@ -11,7 +12,9 @@ const Item: React.FC<ItemProps> = ({ item }) => {
   return (
     <ItemStyled>
       <figure>
-        {item.thumbnail && <Thumbnail thumbnail={item.thumbnail} />}
+        <AspectRatio.Root ratio={1 / 1}>
+          {item.thumbnail && <Thumbnail thumbnail={item.thumbnail} />}
+        </AspectRatio.Root>
         <Label label={item.label} as="figcaption" />
       </figure>
     </ItemStyled>

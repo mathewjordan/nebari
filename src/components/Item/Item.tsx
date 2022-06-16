@@ -10,8 +10,12 @@ interface ItemProps {
   fixedAspectRatio?: number;
 }
 
+/**
+ * This should probbaly be globally defined somewhere
+ */
+const defaultAspectRatio = 1 / 1;
+
 const Item: React.FC<ItemProps> = ({ item, fixedAspectRatio }) => {
-  const defaultAspectRatio = 1 / 1;
   const { ref, inView } = useInView();
   const [aspectRatio, setAspectRatio] = useState(
     fixedAspectRatio ? fixedAspectRatio : defaultAspectRatio
@@ -30,7 +34,9 @@ const Item: React.FC<ItemProps> = ({ item, fixedAspectRatio }) => {
     <ItemStyled ref={ref}>
       <figure>
         <AspectRatio.Root ratio={aspectRatio}>
-          {inView && item.thumbnail && <Thumbnail thumbnail={item.thumbnail} />}
+          {inView && item.thumbnail && (
+            <Thumbnail thumbnail={item.thumbnail} altAsLabel={item.label} />
+          )}
         </AspectRatio.Root>
         <Label label={item.label} as="figcaption" />
       </figure>

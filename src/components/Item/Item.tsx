@@ -1,7 +1,7 @@
 import * as AspectRatio from "@radix-ui/react-aspect-ratio";
-import { ItemStyled } from "@/components/Item/Item.styled";
 import { Label, Thumbnail } from "@samvera/nectar-iiif";
 import React, { useEffect, useState } from "react";
+import { ItemStyled } from "@/components/Item/Item.styled";
 import { NebariItem } from "@/types/nebari";
 import { useInView } from "react-intersection-observer";
 

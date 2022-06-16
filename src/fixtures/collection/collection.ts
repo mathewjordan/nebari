@@ -1,6 +1,4 @@
-import { CollectionItems } from "@iiif/presentation-3";
-
-export const items: CollectionItems[] = [
+export const items = [
   {
     id: "https://digital.lib.utk.edu/assemble/manifest/ascoop/1507160035",
     type: "Manifest",

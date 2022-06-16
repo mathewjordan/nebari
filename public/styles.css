@@ -11,5 +11,91 @@ body {
 }
 
 #root {
+  padding: 0 1rem;
+}
+
+#root header > span {
+  font-weight: 400;
+}
+
+button * {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-weight: 400;
+  font-family: "Calistoga", "Inter", Arial, sans-serif;
+}
+
+h2 {
+  margin: 2.618rem 0 1rem;
+  font-weight: 400;
+  font-family: "Calistoga", "Inter", Arial, sans-serif;
+}
+
+code {
+  background-color: #151718 !important;
+  padding: 0.25rem 0.618rem;
+  font-family: "IBM Plex Mono", monospace;
+  border-radius: 3px;
+}
+
+pre {
   padding: 1rem;
+  background-color: #151718 !important;
+  border-radius: 3px;
+  overflow-x: scroll;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+pre > code {
+  padding: 0;
+}
+
+hr {
+  margin: 2.618rem 0 1rem;
+  color: #26292b;
+}
+
+p,
+li {
+  font-size: 1rem;
+  line-height: 1.55em;
+}
+
+table {
+  background-color: transparent;
+  padding: 1rem 0;
+}
+
+td,
+th {
+  padding: 0.618rem;
+  text-align: left;
+}
+
+th {
+  color: #c1c8cd;
+}
+
+td {
+  border-top: 1px solid #26292b;
+}
+
+td:first-child,
+th:first-child {
+  padding-left: 0;
+}
+
+.documentation-wrapper {
+  padding: 2.618rem;
+  background: #1a1d1e;
+  color: #fff;
+}
+.documentation-wrapper a,
+.documentation-wrapper a:visited {
+  color: #ffcb6b;
+}
+.documentation-wrapper .clover-screenshot {
+  display: none;
 }

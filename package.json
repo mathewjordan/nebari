@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run clean && node build.js&& tsc --emitDeclarationOnly --outDir dist",
+    "build:static": "NODE_ENV=static OUT_DIR=static node build-static.js",
     "clean": "rimraf dist",
     "dev": "NODE_ENV=development node serve.js",
     "test": "jest --watch",
@@ -42,9 +43,12 @@
     "chokidar": "^3.5.3",
     "esbuild": "^0.14.43",
     "esbuild-envfile-plugin": "^1.0.3",
+    "fs-extra": "^10.1.0",
     "jest": "^28.1.1",
     "live-server": "^1.2.2",
+    "markdown-it": "^13.0.1",
     "rimraf": "^3.0.2",
+    "shiki": "^0.10.1",
     "ts-jest": "^28.0.4",
     "ts-node": "^10.8.1",
     "typescript": "^4.7.3"

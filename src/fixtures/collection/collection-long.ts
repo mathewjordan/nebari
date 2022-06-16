@@ -8,7 +8,7 @@ export const items = [
     thumbnail: [
       {
         id: "https://digital.lib.utk.edu/collections/islandora/object/heilman:1187/datastream/TN/view",
-        height: 200,
+        height: 300,
         width: 200,
         type: "Image",
         format: "image/jpeg",
@@ -34,7 +34,7 @@ export const items = [
     thumbnail: [
       {
         id: "https://digital.lib.utk.edu/collections/islandora/object/heilman:823/datastream/TN/view",
-        height: 200,
+        height: 100,
         width: 200,
         type: "Image",
         format: "image/jpeg",

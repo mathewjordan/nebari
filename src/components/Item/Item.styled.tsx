@@ -13,6 +13,7 @@ const ItemStyled = styled("div", {
       height: "100%",
       objectFit: "cover",
       backgroundColor: "#f0f0f0",
+      color: "transparent",
     },
 
     figcaption: {

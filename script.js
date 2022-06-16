@@ -44343,7 +44343,8 @@
         width: "100%",
         height: "100%",
         objectFit: "cover",
-        backgroundColor: "#f0f0f0"
+        backgroundColor: "#f0f0f0",
+        color: "transparent"
       },
       figcaption: {
         padding: "1rem 0"

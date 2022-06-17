@@ -6,8 +6,9 @@ import { NebariItem } from "@/types/nebari";
 import { useInView } from "react-intersection-observer";
 
 interface ItemProps {
-  item: NebariItem;
   fixedAspectRatio?: number;
+  handleClick: (id: string) => void;
+  item: NebariItem;
 }
 
 /**
@@ -15,7 +16,7 @@ interface ItemProps {
  */
 const defaultAspectRatio = 1 / 1;
 
-const Item: React.FC<ItemProps> = ({ item, fixedAspectRatio }) => {
+const Item: React.FC<ItemProps> = ({ item, fixedAspectRatio, handleClick }) => {
   const { ref, inView } = useInView();
   const [aspectRatio, setAspectRatio] = useState(
     fixedAspectRatio ? fixedAspectRatio : defaultAspectRatio
@@ -31,7 +32,7 @@ const Item: React.FC<ItemProps> = ({ item, fixedAspectRatio }) => {
   }, []);
 
   return (
-    <ItemStyled ref={ref}>
+    <ItemStyled ref={ref} onClick={() => handleClick(item.id)}>
       <figure>
         <AspectRatio.Root ratio={aspectRatio}>
           {inView && item.thumbnail && (

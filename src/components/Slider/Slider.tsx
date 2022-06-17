@@ -4,10 +4,19 @@ import React from "react";
 import { SliderStyled } from "./Slider.styled";
 
 const Slider: React.FC<NebariComponent> = ({ items }) => {
+  const handleClick = (id: string) => {
+    console.log(id);
+  };
+
   return (
     <SliderStyled>
       {items.map((item) => (
-        <Item item={item} fixedAspectRatio={1 / 1} key={item.id} />
+        <Item
+          handleClick={handleClick}
+          fixedAspectRatio={1 / 1}
+          item={item}
+          key={item.id}
+        />
       ))}
     </SliderStyled>
   );

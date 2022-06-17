@@ -38,6 +38,10 @@ const Grid: React.FC<NebariGrid> = ({ items }) => {
     }
   }, [mediaQuery]);
 
+  const handleClick = (id: string) => {
+    console.log(id);
+  };
+
   return (
     <GridStyled
       breakpointCols={cols}
@@ -45,7 +49,7 @@ const Grid: React.FC<NebariGrid> = ({ items }) => {
       columnClassName="nebari-grid-column"
     >
       {items.map((item) => (
-        <Item item={item} key={item.id} />
+        <Item handleClick={handleClick} item={item} key={item.id} />
       ))}
     </GridStyled>
   );

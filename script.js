@@ -1002,7 +1002,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useReducer(reducer, initialArg, init);
           }
-          function useRef3(initialValue) {
+          function useRef2(initialValue) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
@@ -1793,7 +1793,7 @@
           exports.useLayoutEffect = useLayoutEffect;
           exports.useMemo = useMemo;
           exports.useReducer = useReducer;
-          exports.useRef = useRef3;
+          exports.useRef = useRef2;
           exports.useState = useState5;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
@@ -35440,13 +35440,13 @@
                 if (typeof _cache !== "undefined") {
                   if (_cache.has(Class2))
                     return _cache.get(Class2);
-                  _cache.set(Class2, Wrapper);
+                  _cache.set(Class2, Wrapper2);
                 }
-                function Wrapper() {
+                function Wrapper2() {
                   return _construct(Class2, arguments, _getPrototypeOf(this).constructor);
                 }
-                Wrapper.prototype = Object.create(Class2.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } });
-                return _setPrototypeOf(Wrapper, Class2);
+                Wrapper2.prototype = Object.create(Class2.prototype, { constructor: { value: Wrapper2, enumerable: false, writable: true, configurable: true } });
+                return _setPrototypeOf(Wrapper2, Class2);
               };
               return _wrapNativeSuper(Class);
             }
@@ -41216,13 +41216,13 @@
                 if (typeof _cache !== "undefined") {
                   if (_cache.has(Class2))
                     return _cache.get(Class2);
-                  _cache.set(Class2, Wrapper);
+                  _cache.set(Class2, Wrapper2);
                 }
-                function Wrapper() {
+                function Wrapper2() {
                   return _construct(Class2, arguments, _getPrototypeOf(this).constructor);
                 }
-                Wrapper.prototype = Object.create(Class2.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } });
-                return _setPrototypeOf(Wrapper, Class2);
+                Wrapper2.prototype = Object.create(Class2.prototype, { constructor: { value: Wrapper2, enumerable: false, writable: true, configurable: true } });
+                return _setPrototypeOf(Wrapper2, Class2);
               };
               return _wrapNativeSuper(Class);
             }
@@ -43999,7 +43999,13 @@
   // src/components/Grid/Grid.styled.tsx
   var GridStyled = styled(react_masonry_css_module_default, {
     display: "flex",
-    width: "auto"
+    width: "auto",
+    ".nebari-grid-column": {
+      marginRight: "2rem",
+      "&:last-child": {
+        marginRight: "0"
+      }
+    }
   });
 
   // node_modules/@babel/runtime/helpers/esm/extends.js
@@ -44333,13 +44339,23 @@
   var import_react20 = __toESM(require_react());
 
   // src/components/Item/Item.styled.tsx
-  var ItemStyled = styled("div", {
+  var ItemStyled = styled("button", {
     zIndex: "1",
     width: "100%",
+    margin: "1rem 0",
+    padding: "0",
+    cursor: "pointer",
+    border: "none",
+    display: "inline",
+    backgroundColor: "transparent",
+    textAlign: "left",
     figure: {
+      margin: "0",
       padding: "0",
-      margin: "1rem",
       img: {
+        position: "absolute",
+        left: "0",
+        top: "0",
         width: "100%",
         height: "100%",
         objectFit: "cover",
@@ -44509,7 +44525,7 @@
 
   // src/components/Item/Item.tsx
   var defaultAspectRatio = 1 / 1;
-  var Item = ({ item, fixedAspectRatio }) => {
+  var Item = ({ item, fixedAspectRatio, handleClick }) => {
     const { ref, inView } = useInView();
     const [aspectRatio, setAspectRatio] = (0, import_react20.useState)(fixedAspectRatio ? fixedAspectRatio : defaultAspectRatio);
     (0, import_react20.useEffect)(() => {
@@ -44522,7 +44538,8 @@
       }
     }, []);
     return /* @__PURE__ */ import_react20.default.createElement(ItemStyled, {
-      ref
+      ref,
+      onClick: () => handleClick(item)
     }, /* @__PURE__ */ import_react20.default.createElement("figure", null, /* @__PURE__ */ import_react20.default.createElement($c1b5f66aac50e106$export$be92b6f5f03c0fe9, {
       ratio: aspectRatio
     }, inView && item.thumbnail && /* @__PURE__ */ import_react20.default.createElement(Nt, {
@@ -44556,7 +44573,7 @@
   };
 
   // src/components/Grid/Grid.tsx
-  var Grid = ({ items: items2 }) => {
+  var Grid = ({ itemCallback, items: items2 }) => {
     const [cols, setCols] = (0, import_react22.useState)(5);
     let mediaQuery = /* @__PURE__ */ new Map();
     mediaQuery.set("xs", useMediaQuery(media.xs));
@@ -44588,8 +44605,10 @@
     }, [mediaQuery]);
     return /* @__PURE__ */ import_react22.default.createElement(GridStyled, {
       breakpointCols: cols,
-      className: "nebari-grid"
+      className: "nebari-grid",
+      columnClassName: "nebari-grid-column"
     }, items2.map((item) => /* @__PURE__ */ import_react22.default.createElement(Item_default, {
+      handleClick: itemCallback,
       item,
       key: item.id
     })));
@@ -44605,17 +44624,20 @@
     width: "auto",
     maxWidth: "100%",
     overflow: "scroll",
+    alignItems: "flex-start",
     [`& ${ItemStyled}`]: {
       width: "240px",
-      minWidth: "240px"
+      minWidth: "240px",
+      marginRight: "2rem"
     }
   });
 
   // src/components/Slider/Slider.tsx
-  var Slider = ({ items: items2 }) => {
+  var Slider = ({ itemCallback, items: items2 }) => {
     return /* @__PURE__ */ import_react23.default.createElement(SliderStyled, null, items2.map((item) => /* @__PURE__ */ import_react23.default.createElement(Item_default, {
-      item,
       fixedAspectRatio: 1 / 1,
+      handleClick: itemCallback,
+      item,
       key: item.id
     })));
   };
@@ -73749,13 +73771,21 @@
   ];
 
   // src/dev.tsx
+  var Wrapper = () => {
+    const handleCallback = (item) => {
+      console.log(`item`, item);
+    };
+    return /* @__PURE__ */ import_react24.default.createElement("section", null, /* @__PURE__ */ import_react24.default.createElement("div", null, /* @__PURE__ */ import_react24.default.createElement("h2", null, "Slider"), /* @__PURE__ */ import_react24.default.createElement(Slider_default, {
+      itemCallback: handleCallback,
+      items
+    })), /* @__PURE__ */ import_react24.default.createElement("div", null, /* @__PURE__ */ import_react24.default.createElement("h2", null, "Grid"), /* @__PURE__ */ import_react24.default.createElement(Grid_default, {
+      itemCallback: handleCallback,
+      items
+    })));
+  };
   var container = document.getElementById("root");
   var root = (0, import_client.createRoot)(container);
-  root.render(/* @__PURE__ */ import_react24.default.createElement(import_react24.StrictMode, null, /* @__PURE__ */ import_react24.default.createElement("section", null, /* @__PURE__ */ import_react24.default.createElement("h2", null, "Slider"), /* @__PURE__ */ import_react24.default.createElement(Slider_default, {
-    items
-  })), /* @__PURE__ */ import_react24.default.createElement("section", null, /* @__PURE__ */ import_react24.default.createElement("h2", null, "Grid"), /* @__PURE__ */ import_react24.default.createElement(Grid_default, {
-    items
-  }))));
+  root.render(/* @__PURE__ */ import_react24.default.createElement(import_react24.StrictMode, null, /* @__PURE__ */ import_react24.default.createElement(Wrapper, null)));
 })();
 /**
  * @license React

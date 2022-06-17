@@ -6,9 +6,10 @@ const ItemStyled = styled("div", {
 
   figure: {
     padding: "0",
-    margin: "1rem",
+    margin: "1rem 0",
 
     img: {
+      position: "absolute",
       width: "100%",
       height: "100%",
       objectFit: "cover",

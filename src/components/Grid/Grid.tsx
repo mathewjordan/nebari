@@ -39,7 +39,11 @@ const Grid: React.FC<NebariGrid> = ({ items }) => {
   }, [mediaQuery]);
 
   return (
-    <GridStyled breakpointCols={cols} className="nebari-grid">
+    <GridStyled
+      breakpointCols={cols}
+      className="nebari-grid"
+      columnClassName="nebari-grid-column"
+    >
       {items.map((item) => (
         <Item item={item} key={item.id} />
       ))}

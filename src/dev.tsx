@@ -4,8 +4,8 @@ import { createRoot } from "react-dom/client";
 import { items } from "./fixtures/collection/collection-long";
 
 const Wrapper = () => {
-  const handleCallback = (id) => {
-    console.log(`id`, id);
+  const handleCallback = (item) => {
+    console.log(`item`, item);
   };
 
   return (

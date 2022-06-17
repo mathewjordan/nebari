@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import { NebariGrid, NebariItem } from "@/types/nebari";
+import React, { useEffect, useState } from "react";
 import { GridStyled } from "@/components/Grid/Grid.styled";
 import Item from "@/components/Item/Item";
 import { media } from "@/stitches";
-import { NebariGrid } from "@/types/nebari";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
 const Grid: React.FC<NebariGrid> = ({ itemCallback, items }) => {
@@ -45,7 +45,11 @@ const Grid: React.FC<NebariGrid> = ({ itemCallback, items }) => {
       columnClassName="nebari-grid-column"
     >
       {items.map((item) => (
-        <Item handleClick={itemCallback} item={item} key={item.id} />
+        <Item
+          handleClick={itemCallback as (item: NebariItem) => void}
+          item={item}
+          key={item.id}
+        />
       ))}
     </GridStyled>
   );

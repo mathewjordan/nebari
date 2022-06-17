@@ -1,5 +1,5 @@
+import { NebariComponent, NebariItem } from "@/types/nebari";
 import Item from "@/components/Item/Item";
-import { NebariComponent } from "@/types/nebari";
 import React from "react";
 import { SliderStyled } from "./Slider.styled";
 
@@ -9,7 +9,7 @@ const Slider: React.FC<NebariComponent> = ({ itemCallback, items }) => {
       {items.map((item) => (
         <Item
           fixedAspectRatio={1 / 1}
-          handleClick={itemCallback}
+          handleClick={itemCallback as (item: NebariItem) => void}
           item={item}
           key={item.id}
         />

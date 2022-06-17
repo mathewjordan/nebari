@@ -7,7 +7,7 @@ import { useInView } from "react-intersection-observer";
 
 interface ItemProps {
   fixedAspectRatio?: number;
-  handleClick?: (id: string) => void;
+  handleClick: (item: NebariItem) => void;
   item: NebariItem;
 }
 
@@ -32,7 +32,7 @@ const Item: React.FC<ItemProps> = ({ item, fixedAspectRatio, handleClick }) => {
   }, []);
 
   return (
-    <ItemStyled ref={ref} onClick={() => handleClick(item.id)}>
+    <ItemStyled ref={ref} onClick={() => handleClick(item)}>
       <figure>
         <AspectRatio.Root ratio={aspectRatio}>
           {inView && item.thumbnail && (

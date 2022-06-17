@@ -6,6 +6,6 @@
 
 - [x] Slider and grid components
 - [x] Lazy loading thumbnails through interaction observer
-- [ ] Item  onClick callback 
+- [x] Item  onClick callback 
 - [ ] Configuration defaults for aspectRatio, thumbnail width/height
 - [ ] Controls for paging sets?

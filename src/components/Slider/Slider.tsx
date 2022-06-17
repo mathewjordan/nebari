@@ -3,17 +3,13 @@ import { NebariComponent } from "@/types/nebari";
 import React from "react";
 import { SliderStyled } from "./Slider.styled";
 
-const Slider: React.FC<NebariComponent> = ({ items }) => {
-  const handleClick = (id: string) => {
-    console.log(id);
-  };
-
+const Slider: React.FC<NebariComponent> = ({ itemCallback, items }) => {
   return (
     <SliderStyled>
       {items.map((item) => (
         <Item
-          handleClick={handleClick}
           fixedAspectRatio={1 / 1}
+          handleClick={itemCallback}
           item={item}
           key={item.id}
         />

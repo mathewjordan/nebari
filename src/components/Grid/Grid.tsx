@@ -5,7 +5,7 @@ import { media } from "@/stitches";
 import { NebariGrid } from "@/types/nebari";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
-const Grid: React.FC<NebariGrid> = ({ items }) => {
+const Grid: React.FC<NebariGrid> = ({ itemCallback, items }) => {
   const [cols, setCols] = useState(5);
 
   let mediaQuery = new Map();
@@ -38,10 +38,6 @@ const Grid: React.FC<NebariGrid> = ({ items }) => {
     }
   }, [mediaQuery]);
 
-  const handleClick = (id: string) => {
-    console.log(id);
-  };
-
   return (
     <GridStyled
       breakpointCols={cols}
@@ -49,7 +45,7 @@ const Grid: React.FC<NebariGrid> = ({ items }) => {
       columnClassName="nebari-grid-column"
     >
       {items.map((item) => (
-        <Item handleClick={handleClick} item={item} key={item.id} />
+        <Item handleClick={itemCallback} item={item} key={item.id} />
       ))}
     </GridStyled>
   );

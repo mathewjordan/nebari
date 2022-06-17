@@ -13,6 +13,7 @@ export interface NebariItem {
 
 export interface NebariComponent {
   behavior?: Behavior;
+  itemCallback?: (id: string) => void;
   items: NebariItem[];
   viewingDirection?: ViewingDirection;
 }

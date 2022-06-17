@@ -7,7 +7,7 @@ import { useInView } from "react-intersection-observer";
 
 interface ItemProps {
   fixedAspectRatio?: number;
-  handleClick: (id: string) => void;
+  handleClick?: (id: string) => void;
   item: NebariItem;
 }
 

@@ -7,6 +7,7 @@ const SliderStyled = styled("div", {
   width: "auto",
   maxWidth: "100%",
   overflow: "scroll",
+  alignItems: "flex-start",
 
   [`& ${ItemStyled}`]: {
     width: "240px",

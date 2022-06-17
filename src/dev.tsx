@@ -5,6 +5,9 @@ import { items } from "./fixtures/collection/collection-long";
 
 const Wrapper = () => {
   const handleCallback = (item) => {
+    /**
+     * do something with `item`
+     */
     console.log(`item`, item);
   };
 

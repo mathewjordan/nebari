@@ -6,7 +6,7 @@ const GridStyled = styled(Masonry, {
   width: "auto",
 
   ".nebari-grid-column": {
-    marginRight: "1rem",
+    marginRight: "2rem",
 
     "&:last-child": {
       marginRight: "0",

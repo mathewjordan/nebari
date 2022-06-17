@@ -11,7 +11,7 @@ const SliderStyled = styled("div", {
   [`& ${ItemStyled}`]: {
     width: "240px",
     minWidth: "240px",
-    marginRight: "1rem",
+    marginRight: "2rem",
   },
 });
 

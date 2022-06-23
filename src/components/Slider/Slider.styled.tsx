@@ -4,6 +4,8 @@ import { ItemStyled } from "../Item/Item.styled";
 
 const SliderStyled = styled("div", {
   display: "flex",
+  position: "relative",
+  zIndex: "0",
   width: "auto",
   maxWidth: "100%",
   overflow: "scroll",

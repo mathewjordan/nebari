@@ -1,9 +1,10 @@
 import { styled } from "@/stitches";
 
 const ItemStyled = styled("button", {
-  zIndex: "1",
+  position: "relative",
+  zIndex: "0",
   width: "100%",
-  margin: "1rem 0",
+  margin: "0 0 1rem",
   padding: "0",
   cursor: "pointer",
   border: "none",

@@ -994,7 +994,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState5(initialState) {
+          function useState6(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1794,7 +1794,7 @@
           exports.useMemo = useMemo;
           exports.useReducer = useReducer;
           exports.useRef = useRef2;
-          exports.useState = useState5;
+          exports.useState = useState6;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -44619,6 +44619,20 @@
   // src/components/Slider/Slider.tsx
   var import_react24 = __toESM(require_react());
 
+  // src/components/Controls/Controls.styled.ts
+  var ControlsStyled = styled("div", {
+    position: "absolute",
+    zIndex: "1",
+    right: "1rem"
+  });
+
+  // src/components/Controls/Controls.tsx
+  var import_react23 = __toESM(require_react());
+  var Controls = () => {
+    return /* @__PURE__ */ import_react23.default.createElement(ControlsStyled, null, /* @__PURE__ */ import_react23.default.createElement("button", null, "Previous"), /* @__PURE__ */ import_react23.default.createElement("button", null, "Next"));
+  };
+  var Controls_default = Controls;
+
   // src/components/Slider/Slider.styled.tsx
   var SliderStyled = styled("div", {
     display: "flex",
@@ -44635,23 +44649,13 @@
     }
   });
 
-  // src/components/Controls/Controls.styled.ts
-  var ControlsStyled = styled("div", {
-    position: "absolute",
-    zIndex: "1",
-    right: "1rem"
-  });
-
-  // src/components/Controls/Controls.tsx
-  var import_react23 = __toESM(require_react());
-  var Controls = () => {
-    return /* @__PURE__ */ import_react23.default.createElement(ControlsStyled, null, /* @__PURE__ */ import_react23.default.createElement("button", null, "Previous"), /* @__PURE__ */ import_react23.default.createElement("button", null, "Next"));
-  };
-  var Controls_default = Controls;
-
   // src/components/Slider/Slider.tsx
   var Slider = ({ itemCallback, items: items2 }) => {
-    return /* @__PURE__ */ import_react24.default.createElement(import_react24.default.Fragment, null, /* @__PURE__ */ import_react24.default.createElement(Controls_default, null), /* @__PURE__ */ import_react24.default.createElement(SliderStyled, null, items2.map((item) => /* @__PURE__ */ import_react24.default.createElement(Item_default, {
+    const [activeIndex, setActiveIndex] = (0, import_react24.useState)();
+    return /* @__PURE__ */ import_react24.default.createElement(import_react24.default.Fragment, null, /* @__PURE__ */ import_react24.default.createElement(Controls_default, {
+      handleChange: setActiveIndex
+    }), /* @__PURE__ */ import_react24.default.createElement(SliderStyled, null, items2.map((item, index) => /* @__PURE__ */ import_react24.default.createElement(Item_default, {
+      active: activeIndex === index,
       fixedAspectRatio: 1 / 1,
       handleClick: itemCallback,
       item,

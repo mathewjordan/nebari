@@ -6,6 +6,7 @@ import { NebariItem } from "@/types/nebari";
 import { useInView } from "react-intersection-observer";
 
 interface ItemProps {
+  active?: boolean;
   fixedAspectRatio?: number;
   handleClick: (item: NebariItem) => void;
   item: NebariItem;

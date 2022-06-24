@@ -1,11 +1,11 @@
-import { NebariGrid, NebariItem } from "@/types/nebari";
+import { NebariComponent, NebariItem } from "@/types/nebari";
 import React, { useEffect, useState } from "react";
 import { GridStyled } from "@/components/Grid/Grid.styled";
 import Item from "@/components/Item/Item";
 import { media } from "@/stitches";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
-const Grid: React.FC<NebariGrid> = ({ itemCallback, items }) => {
+const Grid: React.FC<NebariComponent> = ({ itemCallback, items }) => {
   const [cols, setCols] = useState(5);
 
   let mediaQuery = new Map();

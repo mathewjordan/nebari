@@ -1,5 +1,5 @@
 import React, { StrictMode } from "react";
-import { Grid, Slider } from "./index";
+import Items, { Grid, Slider } from "./index";
 import { createRoot } from "react-dom/client";
 import { items } from "./fixtures/collection/collection-long";
 
@@ -15,11 +15,11 @@ const Wrapper = () => {
     <section>
       <div>
         <h2>Slider</h2>
-        <Slider itemCallback={handleCallback} items={items} />
+        <Items as={Slider} itemCallback={handleCallback} items={items} />
       </div>
       <div>
         <h2>Grid</h2>
-        <Grid itemCallback={handleCallback} items={items} />
+        <Items as={Grid} itemCallback={handleCallback} items={items} />
       </div>
     </section>
   );

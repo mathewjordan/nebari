@@ -16,8 +16,5 @@ export interface NebariComponent {
   itemCallback?: (item: NebariItem) => void;
   items: NebariItem[];
   viewingDirection?: ViewingDirection;
-}
-
-export interface NebariGrid extends NebariComponent {
   masonry?: boolean;
 }

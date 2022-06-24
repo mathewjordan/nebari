@@ -3,8 +3,22 @@
   var __defProp = Object.defineProperty;
   var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
   var __getOwnPropNames = Object.getOwnPropertyNames;
+  var __getOwnPropSymbols = Object.getOwnPropertySymbols;
   var __getProtoOf = Object.getPrototypeOf;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
+  var __propIsEnum = Object.prototype.propertyIsEnumerable;
+  var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+  var __spreadValues = (a2, b2) => {
+    for (var prop in b2 || (b2 = {}))
+      if (__hasOwnProp.call(b2, prop))
+        __defNormalProp(a2, prop, b2[prop]);
+    if (__getOwnPropSymbols)
+      for (var prop of __getOwnPropSymbols(b2)) {
+        if (__propIsEnum.call(b2, prop))
+          __defNormalProp(a2, prop, b2[prop]);
+      }
+    return a2;
+  };
   var __commonJS = (cb, mod) => function __require() {
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   };
@@ -2290,9 +2304,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React8 = require_react();
+          var React9 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React8.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React9.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -3693,7 +3707,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React8.Children.forEach(props.children, function(child) {
+                  React9.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -11265,7 +11279,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React8.Component().refs;
+          var emptyRefsObject = new React9.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -43327,7 +43341,7 @@
   });
 
   // src/dev.tsx
-  var import_react25 = __toESM(require_react());
+  var import_react26 = __toESM(require_react());
 
   // src/components/Grid/Grid.tsx
   var import_react22 = __toESM(require_react());
@@ -44616,8 +44630,16 @@
   };
   var Grid_default = Grid;
 
+  // src/components/Items/Items.styled.ts
+  var ItemsStyled = styled(Grid_default, {});
+
+  // src/components/Items/Items.tsx
+  var import_react23 = __toESM(require_react());
+  var Items = (props) => /* @__PURE__ */ import_react23.default.createElement(ItemsStyled, __spreadValues({}, props));
+  var Items_default = Items;
+
   // src/components/Slider/Slider.tsx
-  var import_react24 = __toESM(require_react());
+  var import_react25 = __toESM(require_react());
 
   // src/components/Controls/Controls.styled.ts
   var ControlsStyled = styled("div", {
@@ -44627,9 +44649,9 @@
   });
 
   // src/components/Controls/Controls.tsx
-  var import_react23 = __toESM(require_react());
+  var import_react24 = __toESM(require_react());
   var Controls = () => {
-    return /* @__PURE__ */ import_react23.default.createElement(ControlsStyled, null, /* @__PURE__ */ import_react23.default.createElement("button", null, "Previous"), /* @__PURE__ */ import_react23.default.createElement("button", null, "Next"));
+    return /* @__PURE__ */ import_react24.default.createElement(ControlsStyled, null, /* @__PURE__ */ import_react24.default.createElement("button", null, "Previous"), /* @__PURE__ */ import_react24.default.createElement("button", null, "Next"));
   };
   var Controls_default = Controls;
 
@@ -44651,10 +44673,10 @@
 
   // src/components/Slider/Slider.tsx
   var Slider = ({ itemCallback, items: items2 }) => {
-    const [activeIndex, setActiveIndex] = (0, import_react24.useState)();
-    return /* @__PURE__ */ import_react24.default.createElement(import_react24.default.Fragment, null, /* @__PURE__ */ import_react24.default.createElement(Controls_default, {
+    const [activeIndex, setActiveIndex] = (0, import_react25.useState)();
+    return /* @__PURE__ */ import_react25.default.createElement(import_react25.default.Fragment, null, /* @__PURE__ */ import_react25.default.createElement(Controls_default, {
       handleChange: setActiveIndex
-    }), /* @__PURE__ */ import_react24.default.createElement(SliderStyled, null, items2.map((item, index) => /* @__PURE__ */ import_react24.default.createElement(Item_default, {
+    }), /* @__PURE__ */ import_react25.default.createElement(SliderStyled, null, items2.map((item, index) => /* @__PURE__ */ import_react25.default.createElement(Item_default, {
       active: activeIndex === index,
       fixedAspectRatio: 1 / 1,
       handleClick: itemCallback,
@@ -44663,6 +44685,9 @@
     }))));
   };
   var Slider_default = Slider;
+
+  // src/index.tsx
+  var src_default = Items_default;
 
   // src/dev.tsx
   var import_client = __toESM(require_client());
@@ -73796,17 +73821,19 @@
     const handleCallback = (item) => {
       console.log(`item`, item);
     };
-    return /* @__PURE__ */ import_react25.default.createElement("section", null, /* @__PURE__ */ import_react25.default.createElement("div", null, /* @__PURE__ */ import_react25.default.createElement("h2", null, "Slider"), /* @__PURE__ */ import_react25.default.createElement(Slider_default, {
+    return /* @__PURE__ */ import_react26.default.createElement("section", null, /* @__PURE__ */ import_react26.default.createElement("div", null, /* @__PURE__ */ import_react26.default.createElement("h2", null, "Slider"), /* @__PURE__ */ import_react26.default.createElement(src_default, {
+      as: Slider_default,
       itemCallback: handleCallback,
       items
-    })), /* @__PURE__ */ import_react25.default.createElement("div", null, /* @__PURE__ */ import_react25.default.createElement("h2", null, "Grid"), /* @__PURE__ */ import_react25.default.createElement(Grid_default, {
+    })), /* @__PURE__ */ import_react26.default.createElement("div", null, /* @__PURE__ */ import_react26.default.createElement("h2", null, "Grid"), /* @__PURE__ */ import_react26.default.createElement(src_default, {
+      as: Grid_default,
       itemCallback: handleCallback,
       items
     })));
   };
   var container = document.getElementById("root");
   var root = (0, import_client.createRoot)(container);
-  root.render(/* @__PURE__ */ import_react25.default.createElement(import_react25.StrictMode, null, /* @__PURE__ */ import_react25.default.createElement(Wrapper, null)));
+  root.render(/* @__PURE__ */ import_react26.default.createElement(import_react26.StrictMode, null, /* @__PURE__ */ import_react26.default.createElement(Wrapper, null)));
 })();
 /**
  * @license React

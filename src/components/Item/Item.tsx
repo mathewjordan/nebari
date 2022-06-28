@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { ItemStyled } from "@/components/Item/Item.styled";
 import { NebariItem } from "@/types/nebari";
 import { useInView } from "react-intersection-observer";
+import { m, LazyMotion, domAnimation, MotionConfig } from "framer-motion";
 
 interface ItemProps {
   active?: boolean;
@@ -36,9 +37,18 @@ const Item: React.FC<ItemProps> = ({ item, fixedAspectRatio, handleClick }) => {
     <ItemStyled ref={ref} onClick={() => handleClick(item)}>
       <figure>
         <AspectRatio.Root ratio={aspectRatio}>
-          {inView && item.thumbnail && (
-            <Thumbnail thumbnail={item.thumbnail} altAsLabel={item.label} />
-          )}
+          <MotionConfig transition={{ duration: 1 }}>
+            {inView && item.thumbnail && (
+              <LazyMotion features={domAnimation}>
+                <m.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                  <Thumbnail
+                    thumbnail={item.thumbnail}
+                    altAsLabel={item.label}
+                  />
+                </m.div>
+              </LazyMotion>
+            )}
+          </MotionConfig>
         </AspectRatio.Root>
         <Label label={item.label} as="figcaption" />
       </figure>
